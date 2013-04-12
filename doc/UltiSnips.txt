@@ -1298,6 +1298,7 @@ Contributors listed in chronological order:
    Mike Morearty - mmorearty
    Stanislav Golovanov - JazzCore
    David Briscoe - DavidBriscoe
+   Keith Welch - paralogiki
 
 
 8.2 Snippets                                       *UltiSnips-contrisnippets*
