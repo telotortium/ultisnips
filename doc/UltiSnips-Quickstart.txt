@@ -64,17 +64,11 @@ For details See doc/UltiSnips.txt section "3.3 Snippet Search Path".
     " declare global configuration dictionary so that config options can be added:
     let g:UltiSnips = {}
 
-    " All details can be understood by reading the implementation at
-    " plugin/UltiSnips.vim
-    "
-    " InterfaceFlavour can be used to set SnipMate/UltiSnips default mappings
-    " for the actions ExpandTrigger, ListSnippets, JumpForwardTrigger,
-    " JumpBackwardTrigger
-    let g:UltiSnips.InterfaceFlavour = "SnipMate"
-
-    " It does make sense to use mapping differing from <tab> for jumping
-    " forward to distinguish expanding from jumping
-    let g:UltiSnips.JumpForwardTrigger = "<c-j>"
+    " customize mappings, eg use snipmate like behaviour
+    " let g:UltiSnips.ExpandTrigger = "<tab>"
+    " " It does make sense to not use <tab> here, use UltiSnips default <c-j>
+    " " let g:UltiSnips.JumpForwardTrigger = "<tab>"
+    " let g:UltiSnips.JumpBackwardTrigger = "<c-k>"
 
     " Now its time to tell UltiSnips about which snippets to load.
     " You do so for snipmate snippets and UltiSnips snippets individually.

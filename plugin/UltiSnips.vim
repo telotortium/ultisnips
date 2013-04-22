@@ -78,10 +78,6 @@ let s:c.snipmate_ft_filter = get(s:c, 'snipmate_ft_filter', {
 " "vertical", "horizontal"
 let s:c['EditSplit'] = get(s:c, 'EditSplit', "normal" )
 
-" use Snipmate like or UltiSnips like interface?
-" values: UltiSnips or Snipmate
-let s:c['InterfaceFlavour'] = get(s:c, 'InterfaceFlavour', "UltiSnips" )
-
 let s:c['debug_snipmate_conversion'] = get(s:c, 'debug_snipmate_conversion', 0)
 
 " If there are multiple snippets matching a trigger the first one will be
@@ -97,35 +93,18 @@ if exists('g:UsePythonVersion')
 endif
 " PyCommand is set below
 
-" short description for keys:
-" ExpandTrigger: NOTE: expansion and forward jumping can, but needn't be the same trigger
-" ListSnippets:  match in the current position.
-" JumpForwardTrigger: NOTE: expansion and forward jumping can, but needn't be the same trigger
-" JumpBackwardTrigger:  The trigger to jump backward inside a snippet
+" expand snippet. Note: expansion and forward jumping can be the smae trigger
+let s:c.ExpandTrigger = get(s:c, 'ExpandTrigger', "<tab>")
 
-let s:InterfaceFlavours = {}
-" Snipate like interface
-let s:InterfaceFlavours['SnipMate'] = {
-      \  'ExpandTrigger' : "<tab>",
-      \  'ListSnippets' : "<c-r><tab>",
-      \  'JumpForwardTrigger' : "<tab>",
-      \  'JumpBackwardTrigger' : "<s-tab>",
-   \ }
+let s:c.ListSnippets = get(s:c, 'ListSnippets', "<c-tab>")
 
-" UltiSnips like interface
-let s:InterfaceFlavours['UltiSnips'] = {
-      \  'ExpandTrigger' : "<tab>",
-      \  'ListSnippets' : "<c-tab>",
-      \  'JumpForwardTrigger' : "<c-j>",
-      \  'JumpBackwardTrigger' : "<c-k>",
-  \  }
-if index(keys(s:InterfaceFlavours), s:c['InterfaceFlavour']) == -1
-    echoe "bad value for g:UltiSnips['InterfaceFlavour']: ".s:c['InterfaceFlavour']." valid options: ".string(keys(s:InterfaceFlavours))
+" jump in snippet to next/previous placeholder
+let s:c.JumpForwardTrigger = get(s:c, 'JumpForwardTrigger', "<c-j>")
+let s:c.JumpBackwardTrigger = get(s:c, 'JumpBackwardTrigger', "<c-k>")
+
+if has_key(s:c,'InterfaceFlavour')
+    echoe "g:UltiSnips.InterfaceFlavour option has been dropped!"
 endif
-
-" merge flavour configuration into configuration dictionary keeping
-" existing settings
-call extend(s:c, s:InterfaceFlavours[s:c['InterfaceFlavour']], 'keep')
 
 " be compatible to configuration style, if a g:UltiSnips* setting exists assign it to
 " dictionary overriding defaults
