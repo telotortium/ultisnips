@@ -58,17 +58,7 @@ Please note that some items in here might be "won't fix ever" items
 - priorities. collisions? Which is the correct way to handle them?
   There is ! modifier, good!
 
-- make loading of snippets lazy for best performance
-
 - escaping $ etc will work. Great :) snipmate failed on that
-
-- what about reloading snippets?
-  docs say:
-	UltiSnips detects when you write changes to a snippets file and automatically
-	makes the changes active. So in the empty buffer, type the tab trigger 'bye'
-	and then press the <Tab> key.
-
-  Does this affect all instances, or just the current running Vim instance?
 
 - nested snippets
 
