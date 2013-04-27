@@ -173,6 +173,13 @@ command! -nargs=0 UltiSnipsDebugSnippets :call UltiSnips#SetupM('', 'debug_snipp
 
 function! UltiSnips_MapKeys()
     " Map the keys correctly
+
+    " assign ListSnippets first, so that ExpandTrigger and JumpForwardTrigger
+    " override it - they are more important. Because CompletionMenu exists now
+    " ListSnippets is no longer mandatory
+    exec "inoremap <silent> " . s:c.ListSnippets . " <C-R>=UltiSnips#SetupM('', 'list_snippets()')<cr>"
+    exec "snoremap <silent> " . s:c.ListSnippets . " <Esc>:call UltiSnips#SetupM('', 'list_snippets()')<cr>"
+
     if g:UltiSnipsExpandTrigger == g:UltiSnipsJumpForwardTrigger
         exec "inoremap <silent> " . s:c.ExpandTrigger . " <C-R>=UltiSnips#SetupM('c', 'expand_or_jump()')<cr>"
         exec "snoremap <silent> " . s:c.ExpandTrigger . " <Esc>:call UltiSnips#SetupM('c', 'expand_or_jump()')<cr>"
@@ -185,8 +192,6 @@ function! UltiSnips_MapKeys()
     exec 'xnoremap ' . s:c.ExpandTrigger. " :call UltiSnips#SetupM('','save_last_visual_selection()')<cr>gvs"
     exec "inoremap <silent> " . s:c.JumpBackwardTrigger . " <C-R>=UltiSnips#SetupM('c', 'jump_backwards()')<cr>"
     exec "snoremap <silent> " . s:c.JumpBackwardTrigger . " <Esc>:call UltiSnips#SetupM('c', 'jump_backwards()')<cr>"
-    exec "inoremap <silent> " . s:c.ListSnippets . " <C-R>=UltiSnips#SetupM('', 'list_snippets()')<cr>"
-    exec "snoremap <silent> " . s:c.ListSnippets . " <Esc>:call UltiSnips#SetupM('', 'list_snippets()')<cr>"
 
     snoremap <silent> <BS> <c-g>c
     snoremap <silent> <DEL> <c-g>c
