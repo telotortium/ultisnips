@@ -923,10 +923,12 @@ class SnippetManager(object):
         want to use, and return it.
         """
         if vim.eval('g:UltiSnips.always_use_first_snippet') == '1':
+            vim.command("echom 'UltiSnips: using first snippet due to always_use_first_snippet'")
             return snippets[0]
 
         # make a python list
         display = [ as_unicode("%i: %s from:%s") % (i+1, s.description, s.location_hint()) for i,s in enumerate(snippets)]
+        display.append("You can make UltiSnips always pick the first item by setting g:UltiSnips.always_use_first_snippet =1")
 
         try:
             rv = _vim.eval("inputlist(%s)" % _vim.escape(display))
