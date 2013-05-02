@@ -103,6 +103,7 @@ For details See doc/UltiSnips.txt section "3.3 Snippet Search Path".
     let g:UltiSnips.snipmate_ft_filter = {
                 \ 'default' : {'filetypes': ["FILETYPE", "_"] },
                 \ 'html'    : {'filetypes': ["html", "javascript", "_"] },
+                \ 'xhtml'    : {'filetypes': ["xhtml", "html", "javascript", "_"] },
                 \ 'cpp'    : {'filetypes': [] },
                 \ }
 
