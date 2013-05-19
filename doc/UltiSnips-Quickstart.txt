@@ -11,10 +11,11 @@ CONTENTS:
   1. Contact / need help / bugs
   2. Installation
   3. SETUP / CONFIGURATION / how does this fork work ?
+  4. FAQ
 
   10. More documentation
 
-  98a. Notes for snipmate users:
+  98a. Notes for snipmate(-snippets) users:
   98b. Notes for UltiSnips users:
 
   99. known bugs
@@ -42,7 +43,7 @@ reasons), but all the other tools pathogen, vundle, .. should also get the job
 done.
 
 You may want to add the external snippet repository
-github.com/honza/snipmate-snippets to runtimepath - then all snippets are
+github.com/honza/vim-snippets to runtimepath - then all snippets are
 available
 
 ==============================================================================
@@ -109,6 +110,19 @@ For details See doc/UltiSnips.txt section "3.3 Snippet Search Path".
 
     " Please mind that 
 
+==============================================================================
+4. FAQ
+
+What are (UltiSnips) snippets? ~
+The native format, see 10.
+
+What are snipmate-snippets? ~
+Files having such a path: snippets/*.snippet
+snippets start by "snippet", the snippet code is always prefixed by one <tab>,
+leading <tab>s are replaced by indentation &sw when expanding.
+
+UltiSnips snippets are more powerful, they allow "nested" placeholders and
+such. See 10.
 
 ==============================================================================
 10. More documentation
@@ -117,7 +131,13 @@ See doc/UltiSnips.txt
 
 
 ==============================================================================
-98a. Notes for snipmate users:
+98a. Notes for snipmate(-snippets) users:
+
+UltiSnips now supports the same feature as snipmate: visually selecting
+snippet text then hitting <cr> or running :RetabSnip will replace spaces by
+<tab> characters. <tab> indicates "one indentation level" snipmate-snippets
+files
+
 _.snippets namespace (used always) is "all.snippets" namespace in UltiSnips.
 You can still keep using "_" as seen above.
 
