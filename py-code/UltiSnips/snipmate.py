@@ -21,6 +21,7 @@ def convert_snippet_lines(name, lines):
         if scope['state'] in ["in_snippet",'get_ind']:
             scope['retval'] += convert_snippet_contents(scope['snippet'])
             scope['retval'] += "endsnippet\n\n"
+        scope['state'] = "none"
 
     for line in lines:
         line_nr += 1
@@ -48,6 +49,11 @@ def convert_snippet_lines(name, lines):
             continue
 
         if line[:1] == "#":
+            # first col comments are always outside of snipets, so this comment
+            # belongs to the following snippet:
+            if (scope['state'] == "in_snippet"):
+                end_snippet()
+
             # comment, keep as is
             scope['retval'] += line
             continue
