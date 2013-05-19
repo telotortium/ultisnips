@@ -200,4 +200,8 @@ endf
 
 call UltiSnips_MapKeys()
 
+augroup UltiSnips
+    autocm BufRead,BufNewFile snippets/*.snippets set filetype=snippets
+augroup end
+
 " vim: ts=8 sts=4 sw=4 expandtab
