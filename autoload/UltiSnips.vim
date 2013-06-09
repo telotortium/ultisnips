@@ -9,7 +9,7 @@ fun! UltiSnips#Setup()
   if !s:did_setup
     " Expand our path
     call s:c.Py("import vim, os, sys")
-    call s:c.Py("sys.path.append(\"".escape(s:py_code,'"')."\")")
+    call s:c.Py("sys.path.append(\"".escape(s:py_code,'\"')."\")")
     call s:c.Py("from UltiSnips import UltiSnips_Manager")
     call s:c.Py("UltiSnips_Manager.expand_trigger = vim.eval('g:UltiSnipsExpandTrigger')")
     call s:c.Py("UltiSnips_Manager.forward_trigger = vim.eval('g:UltiSnipsJumpForwardTrigger')")
